@@ -13,5 +13,5 @@ package datos;
 public class prueba1 {
 //asasjda
     
-    //manuel es un gay homosexual
+    //cordoba es un gay homosexual
 }
