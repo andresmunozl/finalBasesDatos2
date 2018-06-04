@@ -13,21 +13,20 @@ import javax.swing.JOptionPane;
  */
 public class Validador {
     public boolean validarScriptInsertar (String consulta){
-        String[] partes = consulta.split(" ");
+        String[] partesEnter = consulta.split("\n");
+        String[] parteUno = partesEnter[0].split(" ");
         
-        if(partes[0].equalsIgnoreCase("create")){
+      
+        if(parteUno[0].equalsIgnoreCase("create")){
             System.out.println("es create");
-        }else if (partes[0].equalsIgnoreCase("insert")){
+        }else if (parteUno[0].equalsIgnoreCase("insert")){
             System.out.println("Insert");
-        }else if(partes[0].equalsIgnoreCase("select")){
+        }else if(parteUno[0].equalsIgnoreCase("select")){
             System.out.println("Select");
         }else{
             JOptionPane.showMessageDialog(null, "No es una sentencia Valida!","Error",JOptionPane.ERROR_MESSAGE);
         }
         
-        for (int i = 0; i < partes.length; i++) {
-            //System.out.println(partes[i]);
-        }
         return true;
     }
 }
