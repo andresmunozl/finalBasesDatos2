@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package logica;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,18 +10,25 @@ import javax.swing.JOptionPane;
  * @author mavt9
  */
 public class Validador {
-    public boolean validarScript (String consulta){
+    
+    Ejecucion ejecutar = new Ejecucion();
+    
+    public boolean validarScript (String consulta) throws IOException{
         
         if(consulta.length() > 0){
             String[] partesEnter = consulta.split("\n");
-            String[] parteUno = partesEnter[0].split(" ");
+            String[] parteUnoAux = partesEnter[0].split(" ");
 
+           
+            
+            ArrayList<String> parteUno = limpiarVector(parteUnoAux);
 
-            if(parteUno[0].equalsIgnoreCase("create")){
-                System.out.println("es create");
-            }else if (parteUno[0].equalsIgnoreCase("insert")){
+            if(parteUno.get(0).equalsIgnoreCase("create")){
+                ejecutar.crearTabla(partesEnter[0],consulta.substring(consulta.indexOf('(')));
+                
+            }else if (parteUno.get(0).equalsIgnoreCase("insert")){
                 System.out.println("Insert");
-            }else if(parteUno[0].equalsIgnoreCase("select")){
+            }else if(parteUno.get(0).equalsIgnoreCase("select")){
                 System.out.println("Select");
             }else{
                 JOptionPane.showMessageDialog(null, "No es una sentencia Valida!","Error",JOptionPane.ERROR_MESSAGE);
@@ -34,4 +39,16 @@ public class Validador {
         }
         return true;
     }
+    
+    private ArrayList<String> limpiarVector(String [] vector){
+        ArrayList<String> partes = new ArrayList<>();
+        
+        for (int i = 0; i < vector.length; i++) {
+            if (vector[i].length() > 0){
+                partes.add(vector[i]);
+            }           
+        }
+        return partes;
+    }
+    
 }

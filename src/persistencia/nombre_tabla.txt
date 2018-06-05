@@ -1,0 +1,1 @@
+columna_nombre1-tipodato,columna_nombre2-tipodato,columna_nombre3-tipodato
