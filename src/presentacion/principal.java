@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import logica.Archivo;
+import datos.Archivo;
+import java.util.ArrayList;
 import logica.Validador;
 
 /**
@@ -37,7 +38,6 @@ public class principal extends javax.swing.JFrame {
 
         txtScript.setColumns(20);
         txtScript.setRows(5);
-        txtScript.setText("\n");
         jScrollPane1.setViewportView(txtScript);
 
         btnEjecutarScript.setText("Ejecutar Consulta");
@@ -99,16 +99,9 @@ public class principal extends javax.swing.JFrame {
         String recuperado = txtScript.getText();
         System.out.println(recuperado);
         Validador validador = new Validador();
-        validador.validarScriptInsertar(recuperado);
-        try {
-            Archivo.crearArchivo("pruebaaaaa");
-            
-            Archivo.escribirArchivo("prueba1");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        validador.validarScript(recuperado);
+        
+
     }//GEN-LAST:event_btnEjecutarScriptMouseClicked
 
     /**

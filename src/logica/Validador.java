@@ -12,21 +12,26 @@ import javax.swing.JOptionPane;
  * @author mavt9
  */
 public class Validador {
-    public boolean validarScriptInsertar (String consulta){
-        String[] partesEnter = consulta.split("\n");
-        String[] parteUno = partesEnter[0].split(" ");
+    public boolean validarScript (String consulta){
         
-      
-        if(parteUno[0].equalsIgnoreCase("create")){
-            System.out.println("es create");
-        }else if (parteUno[0].equalsIgnoreCase("insert")){
-            System.out.println("Insert");
-        }else if(parteUno[0].equalsIgnoreCase("select")){
-            System.out.println("Select");
-        }else{
-            JOptionPane.showMessageDialog(null, "No es una sentencia Valida!","Error",JOptionPane.ERROR_MESSAGE);
+        if(consulta.length() > 0){
+            String[] partesEnter = consulta.split("\n");
+            String[] parteUno = partesEnter[0].split(" ");
+
+
+            if(parteUno[0].equalsIgnoreCase("create")){
+                System.out.println("es create");
+            }else if (parteUno[0].equalsIgnoreCase("insert")){
+                System.out.println("Insert");
+            }else if(parteUno[0].equalsIgnoreCase("select")){
+                System.out.println("Select");
+            }else{
+                JOptionPane.showMessageDialog(null, "No es una sentencia Valida!","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
-        
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR DIGITE EL SCRIPT A EJECUTAR","PRECAUCION",JOptionPane.INFORMATION_MESSAGE);
+        }
         return true;
     }
 }
