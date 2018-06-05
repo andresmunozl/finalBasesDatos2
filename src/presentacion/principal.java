@@ -31,6 +31,9 @@ public class principal extends javax.swing.JFrame {
         btnEjecutarScript = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabResultados = new javax.swing.JTable();
+        btnScriptCreate = new javax.swing.JButton();
+        btnScriptInsert = new javax.swing.JButton();
+        btnScriptSelect = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +63,17 @@ public class principal extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabResultados);
 
+        btnScriptCreate.setText("Create");
+        btnScriptCreate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnScriptCreateMouseClicked(evt);
+            }
+        });
+
+        btnScriptInsert.setText("Insert");
+
+        btnScriptSelect.setText("Select");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,18 +87,33 @@ public class principal extends javax.swing.JFrame {
                         .addGap(77, 77, 77)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnScriptCreate)
+                                    .addComponent(btnScriptInsert)
+                                    .addComponent(btnScriptSelect)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(btnEjecutarScript, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnScriptCreate)
+                        .addGap(8, 8, 8)
+                        .addComponent(btnScriptInsert)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnScriptSelect)))
                 .addGap(18, 18, 18)
                 .addComponent(btnEjecutarScript)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
@@ -103,6 +132,17 @@ public class principal extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_btnEjecutarScriptMouseClicked
+
+    private void btnScriptCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnScriptCreateMouseClicked
+        String script = "CREATE  TABLE  nombre_tabla\n" +
+                            "(\n" +
+                            "columna_nombre1  tipodato,\n" +
+                            "columna_nombre2  tipodato,\n" +
+                            "columna_nombre3  tipodato,\n" +
+                            "PRIMARY  KEY(col2)" +
+                            ")";
+        txtScript.setText(script);
+    }//GEN-LAST:event_btnScriptCreateMouseClicked
 
     /**
      * @param args the command line arguments
@@ -141,6 +181,9 @@ public class principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEjecutarScript;
+    private javax.swing.JButton btnScriptCreate;
+    private javax.swing.JButton btnScriptInsert;
+    private javax.swing.JButton btnScriptSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
