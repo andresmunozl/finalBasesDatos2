@@ -40,7 +40,7 @@ public class Ejecucion {
     
     private ArrayList<String> dividirConsulta(String consulta){
         String[] camposAux = consulta.split("\n");
-        String llavePrimaria = "";
+        System.out.println("CONSULTA \n"+consulta);
         ArrayList<String> campos = new ArrayList<>();
  
         for (int i = 0; i < camposAux.length; i++) {
@@ -49,16 +49,14 @@ public class Ejecucion {
                 campos.add(camposAux[i]);
             }
             
-            if (camposAux[i].contains("(") && camposAux[i].contains(")")) {
-                llavePrimaria = camposAux[i].substring(camposAux[i].indexOf('(')+1,camposAux[i].indexOf(')')) ;
-            }
+           
             
         }
         
         campos = dividirCampos(campos);
-        for (int i = 0; i < campos.size(); i++) {
-            System.out.println("["+i+"]"+campos.get(i));
-        }
+//        for (int i = 0; i < campos.size(); i++) {
+//            System.out.println("["+i+"]"+campos.get(i));
+//        }
         
         
         return campos;
