@@ -1,0 +1,15 @@
+
+col1-tipodato,
+col2-tipodato,
+col3-tipodato,
+PRIMARY-KEY,
+
+col1-tipodato,
+col2-tipodato,
+col3-tipodato,
+PRIMARY-KEY,
+
+col1-tipodato,
+col2-tipodato,
+col3-tipodato,
+PRIMARY-KEY,

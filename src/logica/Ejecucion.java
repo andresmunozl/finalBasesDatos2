@@ -29,7 +29,6 @@ public class Ejecucion {
         }       
     }
     
-    
     private String nombreTabla(String consulta){
         String[] partesAux = consulta.split(" ");
         ArrayList<String> partes = limpiarVector(partesAux);
@@ -74,14 +73,40 @@ public class Ejecucion {
    
         return campos;
     }
-    
-    
-    
-    
+     
  
     //fin create
     
     
+    // METODOS PARA VALIDAR LA CONSULTA SELECT 
+    
+    public ArrayList<String> generarconsulta1 (String nombreTabla) throws IOException
+    {
+        return archivo.leerArchivo(nombreTabla);
+    }
+    
+    
+    public boolean validarSelect(String cadena) throws IOException{
+        String[] nombre = cadena.split(" ");
+        
+        if(archivo.existeArchivo(nombre[1]))
+        {
+            return true;
+        }
+        else
+            return false;
+        
+    }
+    public boolean validarAsterisco(String cadena)
+    {
+        String[] select = cadena.split(" ");
+        if(select[1].equals("*"))
+            return true;
+        else
+            return false;
+    }
+    
+    //FIN METODOS PARA VALIDAR CONSULTA SELECT 
     
     
     

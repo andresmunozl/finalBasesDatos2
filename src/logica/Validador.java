@@ -30,6 +30,26 @@ public class Validador {
                 System.out.println("Insert");
             }else if(parteUno.get(0).equalsIgnoreCase("select")){
                 System.out.println("Select");
+                if(ejecutar.validarSelect(partesEnter[1])){
+                    boolean bandAsterisco =  ejecutar.validarAsterisco(partesEnter[0]);
+                    boolean tieneWhere = false;
+                    if(partesEnter.length > 2)
+                        tieneWhere = true;
+                    
+                    ArrayList<String> resultado;
+                    
+                    if(bandAsterisco && !tieneWhere)
+                    {
+                        resultado = ejecutar.generarconsulta1(partesEnter[1]);
+                    }
+                    
+                        JOptionPane.showMessageDialog(null, "Tiene Asterisco: "+bandAsterisco);
+                        JOptionPane.showMessageDialog(null, "Tiene where: "+tieneWhere);
+                        
+                }else{
+                    JOptionPane.showMessageDialog(null, "NO EXISTE TABLA SOLICITADA");
+                }
+                    
             }else{
                 JOptionPane.showMessageDialog(null, "No es una sentencia Valida!","Error",JOptionPane.ERROR_MESSAGE);
             }
