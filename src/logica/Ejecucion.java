@@ -39,41 +39,39 @@ public class Ejecucion {
     }
     
     private ArrayList<String> dividirConsulta(String consulta){
-        String[] camposAux = consulta.split("\n");
+        String[] camposAux = consulta.split(",");
         System.out.println("CONSULTA \n"+consulta);
+        
         ArrayList<String> campos = new ArrayList<>();
- 
-        for (int i = 0; i < camposAux.length; i++) {
-            
-            if (!camposAux[i].equals("(") && !camposAux[i].equals(")") && camposAux[i].contains("(") == false) {
-                campos.add(camposAux[i]);
-            }
-            
-           
-            
+        campos = limpiarVector(camposAux);
+       
+        campos = dividirCampos(campos);
+        
+        for (int i = 0; i < campos.size(); i++) {
+            System.out.println("["+i+"]"+campos.get(i));
         }
         
-        campos = dividirCampos(campos);
-//        for (int i = 0; i < campos.size(); i++) {
-//            System.out.println("["+i+"]"+campos.get(i));
-//        }
-        
-        
         return campos;
+     
     }
        
     private ArrayList<String> dividirCampos(ArrayList<String> aux){
         ArrayList<String> campos = new ArrayList<>();
-        ArrayList<String> camposAux = new ArrayList<>();
-        
+        ArrayList<String> camposAux;
         
         for (int i = 0; i < aux.size(); i++) {
             String[] vector = aux.get(i).split(" ");
-            camposAux = limpiarVector(vector);
             
-            campos.add(camposAux.get(0)+"-"+camposAux.get(1));
+            camposAux = limpiarVector(vector);
+            camposAux = limpiarArray(camposAux);
+            
+            if (camposAux.size() > 0) {
+                campos.add(camposAux.get(0)+"-"+camposAux.get(1)+",");
+            }
+            
+            
         }
-               
+   
         return campos;
     }
     
@@ -94,6 +92,17 @@ public class Ejecucion {
         for (int i = 0; i < vector.length; i++) {
             if (vector[i].length() > 0){
                 partes.add(vector[i]);
+            }           
+        }
+        return partes;
+    }
+    
+    private ArrayList<String> limpiarArray(ArrayList<String> aux){
+        ArrayList<String> partes = new ArrayList<>();
+        
+        for (int i = 0; i < aux.size(); i++) {
+            if (aux.get(i).length() > 0 && aux.get(i).equals("\n") == false){
+                partes.add(aux.get(i));
             }           
         }
         return partes;

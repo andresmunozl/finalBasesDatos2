@@ -1,0 +1,4 @@
+
+id-NUMBER,
+nombre-varchar(50),
+apellido-varchar(50),

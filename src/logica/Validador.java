@@ -24,7 +24,7 @@ public class Validador {
             ArrayList<String> parteUno = limpiarVector(parteUnoAux);
 
             if(parteUno.get(0).equalsIgnoreCase("create")){
-                ejecutar.crearTabla(partesEnter[0],consulta.substring(consulta.indexOf('('))+1);
+                ejecutar.crearTabla(partesEnter[0],consulta.substring(consulta.indexOf('(')+1,consulta.length()-1));
                 
             }else if (parteUno.get(0).equalsIgnoreCase("insert")){
                 System.out.println("Insert");
